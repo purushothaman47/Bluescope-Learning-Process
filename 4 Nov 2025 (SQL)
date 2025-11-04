@@ -1,0 +1,50 @@
+
+-- for the joinnig three table
+create database mobile_store;
+use mobile_store;
+create table brands (
+brand_id int primary key,
+brand_name varchar(20)
+);
+create table mobile (
+mobile_id int primary key,
+mobile_name varchar(20),
+mobile_price int ,
+RAM varchar(5),
+ROM varchar(5),
+brand_id int,
+foreign key (brand_id) references brands(brand_id)  
+);
+create table store (
+store_id int primary key,
+avilable boolean,
+mobile_id int,
+foreign key (mobile_id) references mobile(mobile_id)
+);
+insert into brands (brand_id, brand_name) values
+(1, 'mi'),
+(2, 'realme'),
+(3, 'vivo'),
+(4, 'apple'),
+(5, 'Iqoo');
+select * from brands;
+insert into mobile (mobile_id, mobile_name, mobile_price, RAM, ROM, brand_id) values
+(101, 'apple 16', 159999, '6GB', '128GB', 4),
+(102, 'mi 9', 27999, '8GB', '128GB', 1),
+(103, 'realme 20', 16999, '8gGB', '128GB', 2),
+(104, 'Iqoo z9', 18999, '6GB', '128GB', 5);
+select * from mobile;
+insert into store (store_id, avilable, mobile_id) value (201,true,101);
+insert into store (store_id, avilable, mobile_id) value (202,true,104);
+insert into store (store_id, avilable, mobile_id) value (203,true,102);
+insert into store (store_id, avilable, mobile_id) value (204,false,103);
+
+ select b.brand_name,m.mobile_name,s.avilable
+ from brands as b
+ join mobile as m
+ on b.brand_id = m.brand_id
+ join store as s
+ on s.mobile_id = m.mobile_id;
+ 
+
+
