@@ -1,0 +1,22 @@
+package Bluescope;
+
+interface Studentdata {
+    void print();
+}
+class Student implements Studentdata {
+    int id;
+    String name;
+    Student(int id, String name) {
+        this.id = id;
+        this.name = name;}
+    public void print() {
+        System.out.println("id " + id);
+        System.out.println("name " + name);
+    }
+}
+public class Program2 {
+    public static void main(String[] args) {
+        Student obj = new Student(121,"dp");
+        obj.print();
+    }
+}
