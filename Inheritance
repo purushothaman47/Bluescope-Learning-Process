@@ -1,0 +1,21 @@
+class A {
+    int  a= 10;
+    void run()
+    {
+        System.out.println("Running");
+    }
+}
+class B extends A{
+    int b=20;
+    void add ()
+    {
+        System.out.println(a+b);
+    }
+}
+public class Inhertance {
+    public static void main(String[] args) {
+ B b= new B();
+ b.add();
+ b.run();
+    }
+}
