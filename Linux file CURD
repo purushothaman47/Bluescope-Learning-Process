@@ -1,0 +1,118 @@
+
+fc()
+{
+
+echo "Enter the file name"
+
+read fn
+
+echo "Enter the content to file "
+
+read msg
+
+echo  $msg > $fn
+if [ -f $fn ]
+then
+        echo "File is created "
+else
+        echo "Error"
+fi
+}
+
+df()
+{
+echo "File Reading "
+
+echo "Enter the file name"
+
+read fn
+
+if [ -f $fn ]
+then
+        echo "File Contents "
+        cat $fn
+else
+        echo "File not Exists"
+fi
+}
+
+at()
+{
+
+echo "Enter the Old file name"
+
+read fn
+
+echo "Enter the content to name"
+
+read msg
+
+echo $msg >> $fn
+if [ -f $fn ]
+then
+        echo "File appeded"
+        cat $fn
+else
+        echo "new file is created"
+fi
+
+}
+mf()
+{
+echo "Enter the file 1 "
+read fn1
+echo "Enter the file 2"
+read fn2
+rs="mg.txt"
+cat $fn1 $fn2 > $rs
+
+if [ -f $rs ]
+then
+        echo "File merged into new file $rs "
+        echo "Contents of the file $rs "
+        echo "----------------------"
+        cat $rs
+else
+        echo "Error in mergeing"
+fi
+}
+delf()
+{
+echo "Enter the file name "
+
+read fn
+
+rm $fn
+if [ -f $fn ]
+then
+        echo "Error"
+else
+        echo "File Deleted"
+fi
+}
+while true
+do
+        echo -e "1.File Create\t 2.File Display\t 3.Text apped to File\t  4. Mergeing files\t 5.Delete  File"
+
+        echo "Etern the number "
+        read num
+
+        case $num in
+                1) fc
+                        ;;
+                2) df
+                        ;;
+                3) at
+                        ;;
+                4) mf
+                        ;;
+                5) delf
+                        ;;
+                6) exit
+                        ;;
+                *)
+                        echo "Invalid input ";
+                        ;;
+        esac
+done
+
